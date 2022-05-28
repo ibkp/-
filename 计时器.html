@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            button{
+                font-size: large;
+                margin-top: 290px;
+            }
+            span{
+              color: red;
+            }
+    
+            div{
+                text-align: center;
+                margin-top: 20px;
+                font-size: x-large;
+            }
+    
+        </style>
+    </head>
+
+    <body>
+      <div style="text-align: center;"><button id="timing">计时开始</button></div>
+      <div id="dd">
+
+      </div>
+
+      <script>
+        var div=document.getElementById('dd');
+        var i=0;
+        var button = document.getElementById("timing");
+
+        function update(){
+            var j=i++;
+            div.innerHTML="Time passed:"+'<span>'+j+'</span>'+'s';}
+
+        button.addEventListener("click",function()
+        {
+          if(button.textContent === "计时开始")
+          {
+            j=setInterval(update,1000);
+            button.textContent="计时暂停";
+          }
+
+          else
+          {
+            clearInterval(j);
+            button.textContent = "计时开始";
+          }
+        })
+
+      </script>
+    </body>
+</html>
